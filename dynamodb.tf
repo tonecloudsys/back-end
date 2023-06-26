@@ -24,11 +24,11 @@ resource "aws_dynamodb_table_item" "counter-table" {
 resource "aws_dynamodb_table" "counter-table" {
     name = "counter-table"
     billing_mode = "PAY_PER_REQUEST"
-    hash_key = "primarykey"
+    hash_key = "CounterID"
    
 
     attribute {
-        name = "primarykey"
+        name = "CounterID"
         type = "S"
     }
  
