@@ -5,10 +5,10 @@ data "archive_file" "lambda-get-zip" {
 }
 
 resource "aws_lambda_permission" "apigw-lambda-get" {
-    statement_id = "AllowExecutionFromAPIGateway"
-    action       = "lambda:InvokeFunction"
-    function_name= aws_lambda_function.lambda-get-function.function_name
-    principal    = "apigateway.amazonaws.com"
+    statement_id  = "AllowExecutionFromAPIGateway"
+    action        = "lambda:InvokeFunction"
+    function_name = aws_lambda_function.lambda-get-function.function_name
+    principal     = "apigateway.amazonaws.com"
 
     source_arn = "arn:aws.execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api.id}/*/*/${aws_api_gateway_resource.resource.path_part}"
 }
