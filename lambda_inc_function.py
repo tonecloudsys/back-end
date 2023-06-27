@@ -12,7 +12,7 @@ def lambda_handler(event, context):
 
         if "Item" in response:
             table.update_item(
-                Key={"CounterID": counter_id}
+                Key={"CounterID": counter_id},
                 UpdateExpression="SET NumberOfHits = NumberOfHits + :val1",
                 ExpressionAttributeValues={"val1": 1},
             )
