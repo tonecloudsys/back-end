@@ -40,7 +40,7 @@ resource "aws_iam_role" "lambda-inc-role" {
                 ]   
             },
             "Effect": "Allow",
-            "Sid": ""
+            "Sid": 
         }
     ]
 }
