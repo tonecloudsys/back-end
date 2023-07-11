@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambda-inc-function-use1" {
     filename         = data.archive_file.lambda-inc-zip.output_path
     source_code_hash = data.archive_file.lambda-inc-zip.output_base64sha256
     function_name    = "cloud-resume-challenge-lambda-inc"
-    role             = aws_iam_role.lambda-inc
+    role             = aws_iam_role.lambda-inc-role
     handler          = "lambda_inc_function.lambda_handler"
     runtime          = "python3.7"
     publish          = true
@@ -28,6 +28,7 @@ resource "aws_iam_role" "lambda-inc-role" {
 
     assume_role_policy = <<POLICY
 {
+
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -60,7 +61,7 @@ resource "aws_iam_policy" "inc-dynamodb-policy" {
                 "dynamodb:UpdateItem",
                 "dynamodb:GetItem"
             ],
-            "Resource": "${aws_dynamodb_table.counter-db.arn}",
+            "Resource": "${aws_dynamodb_table.counter-table.arn}",
             "Effect": "Allow",
             "Sid": "AllowReadAndWriteToDynamoDb"
         }
@@ -69,7 +70,7 @@ resource "aws_iam_policy" "inc-dynamodb-policy" {
 POLICY
 }
 
-resource "aws_cloudwatch_group" "lambda-inc-cloudwatch-log-group" {
+resource "aws_cloudwatch_log_group" "lambda-inc-cloudwatch-log-group" {
     name        = "/aws/lambda/${aws_lambda_function.lambda-inc-function-use1.function_name}"
     retention_in_days = 14
 }

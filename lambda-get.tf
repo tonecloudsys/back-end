@@ -35,10 +35,8 @@ resource "aws_iam_role" "lambda-get-role" {
             "Service": "lambda.amazonaws.com
         },
         "Effect": "Allow",
-        "Sid":
-
+        "Sid": ""
       }
-    
     ]
 }
 POLICY
@@ -56,7 +54,7 @@ resource "aws_iam_policy" "get-dynamodb-policy" {
             "dynamodb:DescribeTable",
             "dynamodb:GetItem"
           ],
-          "Resource": "${aws_dynamodb_table.counter-db.arn}",
+          "Resource": "${aws_dynamodb_table.counter-table.arn}",
           "Effect:": "Allow",
           "Sid": "AllowReadDynamoDb"
         }
