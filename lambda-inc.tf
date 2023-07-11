@@ -26,7 +26,7 @@ resource "aws_lambda_function" "lambda-inc-function-use1" {
 resource "aws_iam_role" "lambda-inc-role" {
     name = "cloud-resume-challenge-lambda-inc-role"
     
-    assume_role_policy = <<POLICY
+    assume_role_policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -43,7 +43,7 @@ resource "aws_iam_role" "lambda-inc-role" {
         }
     ]
 }
-POLICY
+EOF
 }
 
 resource "aws_iam_policy" "inc-dynamodb-policy" {
