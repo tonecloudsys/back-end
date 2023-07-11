@@ -25,24 +25,24 @@ resource "aws_lambda_function" "lambda-inc-function-use1" {
 
 resource "aws_iam_role" "lambda-inc-role" {
     name = "cloud-resume-challenge-lambda-inc-role"
-    assume_role_policy = <<EOF
-{
+    assume_role_policy = jsonencode({
+
     "Version": "2012-10-17",
     "Statement": [
         {
             "Action": "sts:AssumeRole",
             "Principal": {
                 "Service": [
-                    "lambda.amazonaws.com"
+                    "lambda.amazonaws.com",
                     "edgelambda.amazonaws.com"
                 ]   
             },
             "Effect": "Allow",
-            "Sid":
+            "Sid": ""
         }
     ]
-}
-EOF
+})
+
 }
 
 resource "aws_iam_policy" "inc-dynamodb-policy" {
