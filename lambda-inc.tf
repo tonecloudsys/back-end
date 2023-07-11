@@ -25,10 +25,9 @@ resource "aws_lambda_function" "lambda-inc-function-use1" {
 
 resource "aws_iam_role" "lambda-inc-role" {
     name = "cloud-resume-challenge-lambda-inc-role"
-
+    
     assume_role_policy = <<POLICY
 {
-
     "Version": "2012-10-17",
     "Statement": [
         {
