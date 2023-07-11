@@ -24,7 +24,6 @@ resource "aws_lambda_function" "lambda-get-function" {
 
 resource "aws_iam_role" "lambda-get-role" {
     name = "cloud-resume-challenge-lambda-get-role"
-
     assume_role_policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -32,7 +31,7 @@ resource "aws_iam_role" "lambda-get-role" {
       {
         "Action": "sts:AssumeRole",
         "Principal": {
-            "Service": "lambda.amazonaws.com
+            "Service": "lambda.amazonaws.com"
         },
         "Effect": "Allow",
         "Sid": ""
