@@ -19,3 +19,8 @@ provider "aws" {
     region = "us-east-1"
     alias = "use1"
 }
+
+locals {
+    region      = "us-east-1"
+    root_domain_name = "resume.toneherndon.com"
+}
