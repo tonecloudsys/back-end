@@ -21,7 +21,7 @@ resource "aws_api_gateway_integration" "apigw-integration" {
     http_method             = aws_api_gateway_method.method.http_method
     integration_http_method = "POST"
     type                    = "AWS_PROXY"
-    url                     = aws_lambda_function.lambda-get-function.invoke_arn
+    uri                     = aws_lambda_function.lambda-get-function.invoke_arn
 
 }
 
