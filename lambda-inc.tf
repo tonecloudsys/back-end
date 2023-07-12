@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambda-inc-function-use1" {
     filename         = data.archive_file.lambda-inc-zip.output_path
     source_code_hash = data.archive_file.lambda-inc-zip.output_base64sha256
     function_name    = "cloud-resume-challenge-lambda-inc"
-    role             = aws_iam_role.lambda-inc-role
+    role             = aws_iam_role.lambda-inc-role.arn
     handler          = "lambda_inc_function.lambda_handler"
     runtime          = "python3.7"
     publish          = true

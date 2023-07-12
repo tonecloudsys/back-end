@@ -17,6 +17,7 @@ provider "aws" {
 provider "aws" {
      version = "~> 5.0.1"
     region = "us-east-1"
+    profile = "tone.herndon.adm"
     alias = "use1"
 }
 
