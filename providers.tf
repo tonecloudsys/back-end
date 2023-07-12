@@ -22,8 +22,8 @@ provider "aws" {
 }
 
 locals {
-    account_id  = "44886408-4031-7010-7a27-0d8c4952c206"
+    account_id  = "704953571715"
     region      = "us-east-1"
     root_domain_name = "resume.toneherndon.com"
-    cv_domain_name = "cv.${local.root_domain_name}"
+  
 }
