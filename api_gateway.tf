@@ -46,7 +46,7 @@ resource "aws_api_gateway_method_settings" "apigw-settings" {
 }
 
 resource "aws_api_gateway_account" "apigw-attach-iam" {
-    cloudwatch_role_arn = aws_iam_role.apigw-role.invoke_arn
+    cloudwatch_role_arn = aws_iam_role.apigw-role.arn
     depends_on = [ aws_iam_role_policy_attachment.apigw-logs-policy-attach]
 }
 
