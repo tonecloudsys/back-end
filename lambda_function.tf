@@ -14,4 +14,7 @@ resource "aws_lambda_function" "lambda_python" {
     source_code_hash = data.archive_file.lambda_function_zip.output_base64sha256
 }
 
+#Define Lambda function IAM Role
+resource "aws_iam_role" "lambda_role"
+
 
